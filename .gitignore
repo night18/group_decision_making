@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.py[cod]
+.node_modules/
+.DS_Store
+gittoken
+*.log
+conda/
+server/.venv
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+*.pyc
+!.elasticbeanstalk/*.global.yml
