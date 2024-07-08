@@ -1,0 +1,50 @@
+index,race,sex,age,priors_count,juv_fel_count,juv_misd_count,charge_degree,charge_reason,charge_explain,model_suggestion,ground_truth,Pair_id,Condition
+194,White,male,42,6,0,0,felony,Possession of a Controlled Substance,Possession of a criminalized narcotic or pharmacological drug,FALSE,FALSE,-1,-2
+2054,White,male,25,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,FALSE,FALSE,1,-1
+5418,Black,male,27,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,FALSE,FALSE,2,-1
+7205,White,male,27,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,TRUE,3,-1
+4059,Black,male,28,0,0,2,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,TRUE,4,-1
+2161,White,male,29,0,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,FALSE,FALSE,5,-1
+2010,Black,male,27,0,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,FALSE,FALSE,6,-1
+641,White,male,29,0,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,TRUE,7,-1
+1894,Black,male,27,0,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,FALSE,TRUE,8,-1
+709,White,female,46,2,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,FALSE,FALSE,-1,0
+1690,White,female,44,4,0,0,felony,Possession of Cocaine,Possession of cocaine,FALSE,TRUE,-1,0
+3531,White,male,57,0,0,0,felony,Felony Battery (Dom Strang),Intentionally causing bodily harm to another person without a weapon,FALSE,FALSE,-1,0
+6341,White,male,22,4,0,1,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,TRUE,-1,0
+6941,Black,male,61,11,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,FALSE,-1,0
+3368,Black,male,36,25,0,2,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,TRUE,-1,0
+702,Black,male,27,10,0,1,felony,Driving While License Revoked,Driving with a license that has been revoked,TRUE,TRUE,-1,0
+1877,Black,male,31,19,0,0,felony,Driving While License Revoked,Driving with a license that has been revoked,TRUE,TRUE,-1,0
+1183,White,female,29,11,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,1
+5127,White,male,34,13,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,TRUE,-1,1
+1502,White,male,55,13,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,1
+743,White,male,30,22,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,1
+6489,White,female,34,10,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,1
+568,White,male,44,11,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,FALSE,-1,1
+3393,White,male,71,13,0,0,felony,Felony Driving While Lic Suspd,Driving with a license that has been suspended,TRUE,FALSE,-1,1
+3256,White,male,39,17,6,1,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,1
+4581,White,female,26,2,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,FALSE,TRUE,-1,2
+781,White,male,21,2,0,2,felony,Grand Theft (Motor Vehicle),The unlawful taking of property worth more than $300,TRUE,TRUE,-1,2
+720,White,male,21,0,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,FALSE,-1,2
+4191,White,male,57,1,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,FALSE,FALSE,-1,2
+906,White,male,24,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,FALSE,FALSE,-1,2
+4999,White,male,59,2,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,FALSE,TRUE,-1,2
+5190,White,male,21,0,0,0,felony,Grand Theft (Motor Vehicle),The unlawful taking of property worth more than $300,TRUE,TRUE,-1,2
+4427,White,male,32,0,0,0,felony,Grand Theft (Motor Vehicle),The unlawful taking of property worth more than $300,FALSE,TRUE,-1,2
+5580,Black,male,33,14,0,0,felony,Driving While License Revoked,Driving with a license that has been revoked,TRUE,TRUE,-1,3
+3080,Black,male,54,10,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,FALSE,-1,3
+3954,Black,male,48,10,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,FALSE,-1,3
+2593,Black,male,59,14,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,3
+3204,Black,male,31,16,2,1,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,TRUE,-1,3
+1518,Black,male,32,12,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,FALSE,-1,3
+1400,Black,female,38,14,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,3
+4772,Black,male,39,19,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,TRUE,-1,3
+5612,Black,male,30,0,0,0,felony,Possession of Cocaine,Possession of cocaine,TRUE,TRUE,-1,4
+4414,Black,male,22,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,FALSE,-1,4
+6037,Black,male,23,0,0,0,felony,Felony Battery (Dom Strang),Intentionally causing bodily harm to another person without a weapon,TRUE,FALSE,-1,4
+4910,Black,male,23,1,0,0,felony,Grand Theft (Motor Vehicle),The unlawful taking of property worth more than $300,TRUE,FALSE,-1,4
+3269,Black,male,33,2,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,TRUE,-1,4
+1986,Black,male,46,2,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,FALSE,-1,4
+4839,Black,male,22,2,0,0,misdemeanor,Battery,Intentionally causing bodily harm to another person without a weapon,TRUE,TRUE,-1,4
+699,Black,male,46,0,0,0,felony,Grand Theft in the 3rd Degree,The unlawful taking of property worth more than $300,TRUE,FALSE,-1,4

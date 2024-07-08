@@ -1,0 +1,157 @@
+body {
+  background-color: #F0F2F5;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+.jumbotron {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  height: inherit;
+}
+
+.button-area {
+  padding-top: 15px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.task-area {
+  height: calc(100vh - 60px);
+  min-height: 391px;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+
+
+@media (max-height: 600px) {
+  .task-area {
+    height: calc(100vh - 150px);
+  }
+}
+
+.answer-area {
+  margin-top: 15px;
+  /*margin-bottom: 25px;*/
+  padding: 5px;
+}
+
+.suggestion-area {
+  padding: 10px 5px;
+  margin-top: 30px;
+  background-color: #fff600aa;
+}
+
+.jumbotron {
+  background-color: #F0F2F5;
+}
+
+.avatar-area {
+  text-align: center;
+  line-height: 40px;
+}
+
+.highlight {
+  color: #ff0000;
+  font-weight: 800;
+}
+
+.vertical-align {
+  margin: auto 0;
+}
+
+.avatar-icon {
+  display:inline-block !important; 
+}
+
+.warning-box {
+  padding: 5px;
+  border: solid 3px red;
+}
+
+.swal2-radio {
+    display: grid !important;
+    text-align: left;
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.v-step {
+  max-width: 400px !important;
+  line-height: 1.8em !important;
+  text-align:left !important;
+}
+
+.v-step__button-skip {
+  display: none !important;
+}
+
+.devil {
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+}
+
+.card{
+  border-width: 1px #158496 !important;
+}
+
+.task-info {
+  border:  solid 1px #138496;
+}
+
+.task-info-title {
+  text-align: left;
+  background-color: #138496;
+  color: white;
+  border-bottom: solid 1px white;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding: 0px 2px;
+}
+
+.black-bottom {
+  border-bottom: solid 1px #138496;
+}
+
+.task-info-data {
+  border-bottom: solid 1px #138496;
+}
+
+.task-info .row{
+  width: 100%;
+  margin-left: 0px !important;
+  border-right: solid 1px #138496;
+}
+
+.task-info .row:first-child .task-info-data {
+  border-top: solid 1px #138496;
+}
+
+.tooltip-inner {
+  text-align: left;
+}
