@@ -26,19 +26,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '172.31.12.2',
-    '18.235.57.99',
-    '34.233.106.112',
-    '172.31.25.73',
-    '54.209.49.172',
-    '172.31.89.157',
-    'crowd.cs.purdue.edu',
-    'yuchun.org',
-    'www.yuchun.org',
-    'devil-dev.us-east-1.elasticbeanstalk.com',
-    '172.31.6.115',
-    'devil-advocate.hci-study.com',
-    'www.devil-advocate.hci-study.com'
 ]
 
 
