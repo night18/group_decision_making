@@ -9,7 +9,6 @@ class GPT:
 	3: Static devil's advocate for group
 	4: Dynamic devil's advocate for group
 	'''
-    
     def __init__(self, task, condition, messages = None, initial_prediction = None):
         self.task = task
         self.condition = int(condition)
@@ -19,70 +18,106 @@ class GPT:
 
     def get_system_message(self):
         if self.condition == 1:
-            system_message = '''You have to help the jury member rethink the correctness of the suggestion from RiskComp based on the its suggestion and the defendant infomation.
+            system_message = '''
+Help the jury member critique the suggestion from RiskComp based on its prediction and the defendant's information.
+- You will receive information about the defendant and RiskComp's prediction.
+- Formulate critique questions to help reconsider the validity of the prediction.
+- Ensure questions focus on evaluating the suggestion's accuracy and fairness without needing further input from the judge.
 
-RiskComp is a machine learning model that provides suggestions to the jury member about whether a defendant will reoffend the law within 2 years.
+# Steps
+1. Review the defendant's information and RiskComp prediction.
+2. Formulate three short critique questions targeting potential weaknesses or oversights in the prediction.
+3. Limit each question to under 20 words.
 
-The judge will provide the defendant information and the prediction from RiskComp. But the judge would not respond any question.
+# Output Format
+- Provide the critique questions in bullet point format, labeled as "Critiques."
 
-Please directly list the 3 short (less than 20 words) critique questions in bullet point format, such as,
-'
+# Examples
 Critiques:
-- Reason 1
-'
-'''
+- Does the prediction consider recent behavioral changes?
+- Is the model biased against similar past cases?
+- Are all relevant socio-economic factors considered?
+
+# Notes
+- The judge will not respond to any further queries for clarification.
+- Keep the critique questions concise (less than 20 words) and relevant to the decision made.'''
         elif self.condition == 2:
-            system_message = '''You are an assistant that helps the jury member rethink the correctness of the RiskComp's suggestion through Socratic questioning.
+            system_message = '''
+Assist the jury member in questioning the validity of RiskComp's suggestion using Socratic questioning.
 
-RiskComp is a machine learning model that provides suggestions to the jury member about whether a defendant will reoffend the law within 2 years.
+The judge provides the defendant's information and RiskComp's prediction. RiskComp is a machine learning model that suggests whether a defendant will reoffend within 2 years. The jury will discuss it with you, but not the judge.
 
-The judge will provide the defendant information and the prediction from RiskComp. But the judge would not repond any question. Only the Jury will discuss with you.
+- Do not act as a jury member; only assist them.
+- Each jury member has a unique number for tracking their previous discussion content.
+- Indicate decision content that seems unlikely to follow RiskComp's suggestions with "...".
 
-Notice that you are an assistant not a jury member. Do not pretend you are jury member.
+# Output Format
 
-There are multiple members in the conversation, and they have their uiqnue number as "jury mmber + number". Please notice unique number to load their previous discussion content.
+Present insights as one or two sentences in human dialogue format without repeating previous insights. Format your response as: `assistant: response`
 
-Please say "..." when the jury member's deicsion content is less likely to follow from the RISKComp's suggestions.
+# Examples
 
-Please provide one or two sentences as in a human dialogue and do not repeat your insight. Your return should be in the format of "assistant: ...".'''
+Input: Jury member number: [statement supports RiskComp's suggestion]
+Output: `assistant:  (Provide insights following the Socratic method based on jury discussions and previous content.)'''
 
         elif self.condition == 3:
-            system_message = '''You have to help the jury member rethink the correctness of their initial decision based on the decision and the defendant infomation.
+            system_message = '''
+Review the correctness of an initial jury decision based on defendant's information and the jury's provided decision.
+- You will receive information about the defendant and the jury's initial decision.
+- Formulate critique questions to help reconsider the validity of the decision.
+- Ensure questions focus on evaluating the suggestion's accuracy and fairness without needing further input from the judge.
+# Steps
+1. Carefully read the jury's initial decision and the defendant's information.
+2. Critically evaluate the aspects of the decision.
+3. Formulate three critique questions that encourage reconsideration of the jury's initial decision.
 
-The judge will provide the defendant information and the initial decision from jurt. But the judge would not respond any question.
+# Output Format
+- Provide the critique questions in bullet point format, labeled as "Critiques."
 
-Please directly list the 3 short (less than 20 words) critique questions in bullet point format, such as,
-'
+# Examples
 Critiques:
-- Reason 1
-            '
-            '''
+- Did the jury consider all relevant evidence presented?
+- Is there any potential bias in the jury's decision?
+- Were the legal instructions followed accurately by the jury?
+
+# Notes
+- The judge will not respond to any further queries for clarification.
+- Keep the critique questions concise and relevant to the decision made.
+'''
         elif self.condition == 4:
-            system_message = '''You are an assistant that helps the jury member rethink the correctness of their initial decision.
+            system_message = '''
+Assist the jury member in questioning the validity of their initial decision using Socratic questioning.
 
-The judge will provide the defendant information and the prediction from RiskComp. But the judge would not repond any question. Only the Jury will discuss with you.
+The judge provides the defendant's information and the jury's initial decision about whether a defendant will reoffend within 2 years. The jury will discuss it with you, but not the judge.
 
-Notice that you are an assistant not a jury member. Do not pretend you are jury member.
+- Do not act as a jury member; only assist them.
+- Each jury member has a unique number for tracking their previous discussion content.
+- Indicate decision content that seems unlikely to follow the jury's initial decision with "...".
 
-There are multiple members in the conversation, and they have their uiqnue number as "jury mmber + number". Please notice unique number to load their previous discussion content.
+# Output Format
 
-Please say "..." when the jury member's deicsion content is less likely to follow from the RISKComp's suggestions.
+Present insights as one or two sentences in human dialogue format without repeating previous insights. Format your response as: `assistant: response`
 
-Please provide one or two sentences as in a human dialogue and do not repeat your insight.Your return should be in the format of "assistant: ...".'''
+# Examples
+
+Input: Jury member number: [Statement supports the jury's initial decision]
+Output: `assistant: (Provide insights following the Socratic method based on jury discussions and previous content.)'''
         else:
             return ""
         return system_message
 
     def get_judge_message(self):
         if self.condition == 1 or self.condition == 2:
-            judge_message = '''A {age}-year-old {sex} {race} defendant has been charged with {charge_reason} as a {charge_degree}.  Specifically, {charge_reason} means {charge_explain}. The defendant has {prior} prior criminal count. The defendant made {misdemeanor} misdemeanors and {felony} felonies before 18.
+            judge_message = '''
+A {age}-year-old {race} {sex} defendant has been charged with {charge_reason} as a {charge_degree}.  Specifically, {charge_reason} means {charge_explain}. The defendant has {prior} prior criminal counts. The defendant made {misdemeanor} misdemeanors and {felony} felonies before 18.
+---
+RiskComp predicts the defendant will {prediction} reoffend the law within 2 years.'''
 
-            RiskComp predicts the defendant will {prediction} reoffend the law within 2 years.'''
         elif self.condition == 3 or self.condition == 4:
-            judge_message = '''A {age}-year-old {sex} {race} defendant has been charged with {charge_reason} as a {charge_degree}.  Specifically, {charge_reason} means {charge_explain}. The defendant has {prior} prior criminal count. The defendant made {misdemeanor} misdemeanors and {felony} felonies before 18.
-
-            Jury initial determined the defendant will {prediction} reoffend the law within 2 years.
-            '''
+            judge_message = '''
+A {age}-year-old {sex} {race} defendant has been charged with {charge_reason} as a {charge_degree}.  Specifically, {charge_reason} means {charge_explain}. The defendant has {prior} prior criminal count. The defendant made {misdemeanor} misdemeanors and {felony} felonies before 18.
+---
+The jury initially determined the defendant will {prediction} reoffend the law within 2 years.'''
         else:
             return ""
         
@@ -115,8 +150,8 @@ Please provide one or two sentences as in a human dialogue and do not repeat you
     
     def static_devil_advocate(self):
         # Maybe we should keep it in the database to save money
-        static = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        static = openai.chat.completions.create(
+            model="gpt-4o",
             messages=[
                     {"role": "system", "content":  self.get_system_message()},
                     {"role": "user", "content": "Judge:" + self.get_judge_message()},
@@ -129,40 +164,74 @@ Please provide one or two sentences as in a human dialogue and do not repeat you
    
     def sentenceType(self, content):
         type_message = '''
-Please distinguish the content is ["statement"/"question"/"unrelated"] of a prediction task that whether a defendant would reoffend the law within two years.
-Here are the explanation of each type:
-statement: Statements related to the defendant's demographic, criminal history, crime sentence.
-question: Questions to ask other's opinion.
-Please provide the type without any reason or punctuation mark.'''
+Determine whether the content provided is a "statement," "question," or "unrelated" in the context of a prediction task regarding whether a defendant would reoffend within two years.
+
+- "statement": Content includes details about the defendant, such as demographics, criminal history, or crime sentence, and determining or reasoning the reoffend opportunity.
+- "question": Content involves asking for someone else's opinion.
+- "unrelated": Content that does not fit the categories of "statement" or "question."
+
+# Steps
+
+1. Analyze the content to determine its primary purpose.
+2. Classify if it matches the definition of "statement," "question," or "unrelated."
+
+# Output Format
+
+Provide the classification type alone (statement/ question/ unrelated), without any explanation or punctuation mark.
+
+# Examples
+
+**Example 1**  
+Input: "Too old to commit a crime."  
+Output: statement  
+
+**Example 2**  
+Input: "Does the defendant have anger management issues that could be treated?"  
+Output: question  
+
+**Example 3**  
+Input: "LOL."  
+Output: unrelated  
+
+# Notes
+- Ensure clarity in classification by focusing solely on the content's intention.
+- Avoid providing reasons or any additional commentary in the output.'''
         messages = [
             {"role": "system", "content": type_message},
             {"role": "user", "content": content}
             ]
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        response = openai.chat.completions.create(
+            model="gpt-4o",
             messages=messages,
             temperature = 1
             )
-
         return response.choices[0].message.content.lower().strip()
 
     def statementType(self, content):
-        type_message = '''The statement after ### is from part of the dialogue between the jury members discussed about whether a defendant will reoffend the law.
-Please distinguish whether the statement is on the side of that a defendant will reoffend the law.
-Please provide [true/false] without any reason or punctuation mark.
-true means that he speakers have greater chance to consider the defendant will roffend the law rather than will not reoffend the law.
-false means that the speakers have greater chance to consider the defendant will not roffend the law rather than will reoffend the law.
-        ###
-        {content}\n
-        '''
-        response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=type_message.format(content=content),
-        max_tokens=10,
-        temperature=1
-        )
+        type_message = '''
+Determine if the statement indicates a belief that a defendant will reoffend.
 
-        return response.choices[0].text.lower().strip()
+# Steps
+1. Read the given statement carefully.
+2. Analyze the content to assess whether it suggests a likelihood that the defendant will reoffend.
+3. Decide if the statement leans more towards the belief that the defendant will reoffend or will not reoffend.
+
+# Output Format
+Respond with only "true" or "false" without any reason or punctuation mark.
+- "true" if the statement suggests a greater chance that the defendant will reoffend.
+- "false" if the statement suggests a greater chance that the defendant will not reoffend.'''
+        messages = [
+            {"role": "system", "content": type_message},
+            {"role": "user", "content": content}
+        ]
+        response = openai.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            max_tokens=2,
+            temperature=1
+        )
+        print(response)
+        return response.choices[0].message.content.lower().strip()
 
     
     def dynamic_devil_advocate(self):
@@ -193,8 +262,8 @@ false means that the speakers have greater chance to consider the defendant will
                     messages.append({"role": "user", "content": content})
 
                 # print(messages)
-                dynamic = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                dynamic = openai.chat.completions.create(
+                    model="gpt-4o",
                     messages=messages,
                     temperature = 1
                     )
